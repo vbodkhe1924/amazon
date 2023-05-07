@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amazon cal</title>
+
+
+    <style>
+        .cost-input{
+             font-size: 12px;
+            /*padding-top:10px ;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px; */
+            padding: 10px;
+
+        }
+        .calculate-button{
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 10px 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <p>AMAZON SHIPPING CALCULATOR</p>
+    <input placeholder="COST OF ORDER " class="js-cost-input  cost-input" onkeydown="
+     ENTER();
+    // if(event.key==='Enter'){
+    //     CalculateTotal();
+    // }
+    ">
+    <button onclick="
+    CalculateTotal();
+    " class = "calculate-button" >Calculate</button>
+    <p class="js-total-cost"></p>
+    <script>
+
+        function ENTER(){
+            if(event.key==='Enter'){
+        CalculateTotal();
+    }
+        }
+        function CalculateTotal(){
+            const inputCal=document.querySelector('.js-cost-input');
+            let cost=Number(inputCal.value);//Number() is typecasting the sting input in dom
+            if(cost < 40){
+                cost=cost+10;
+            }
+
+            document.querySelector('.js-total-cost')
+            .innerHTML=`$${cost}`;
+
+
+        }
+    </script>
+
+    
+</body>
+</html>
